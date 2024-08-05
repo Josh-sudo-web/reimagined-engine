@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <meta name="description" content="This is a simple website demonstrating the use of meta tags for search engine optimization (SEO) and accessibility.">
+    <meta name="author" content="Your Name">
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Meta Tags Example Website">
+    <meta property="og:description" content="A simple website showing how to use meta tags.">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="Meta Tags Example Website">
+    <meta name="twitter:description" content="Learn about meta tags with this example.">
+    <meta name="twitter:image" content="https://example.com/image.jpg">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="refresh" content="1000000; url=URL">
+</head>
+<body>
+    <h1>Meta Tag Generator</h1>
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Get meta tag values from URL parameters
+        const author = urlParams.get('author');
+        const title = urlParams.get('title');
+        const description = urlParams.get('description');
+        const color = urlParams.get('color');
+        const image = urlParams.get('image');
+        const redirect = urlParams.get('redirect');
+        
+        // Create meta tags
+        const metaTitle = document.createElement('meta');
+        metaTitle.setAttribute('property', 'og:title');
+        metaTitle.content = title;
+        document.head.appendChild(metaTitle);
+        
+        const metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('property', 'og:description');
+        metaDescription.content = description;
+        document.head.appendChild(metaDescription);
+        
+        const metaImage = document.createElement('meta');
+        metaImage.setAttribute('property', 'og:image');
+        metaImage.content = image;
+        document.head.appendChild(metaImage);
+        
+        const metaAuthor = document.createElement('meta');
+        metaAuthor.setAttribute('name', 'author');
+        metaAuthor.content = author;
+        document.head.appendChild(metaAuthor);
+        
+        const metaThemeColor = document.createElement('meta');
+        metaThemeColor.setAttribute('name', 'theme-color');
+        metaThemeColor.content = `#${color}`;
+        document.head.appendChild(metaThemeColor);
+        
+        // Set title
+        document.title = title;
+        
+        // Set theme color
+        document.body.style.backgroundColor = `#${color}`;
+        
+        // Redirect
+        setTimeout(function() {
+            window.location.href = redirect;
+        }, 1000);
+    </script>
+</body>
+</html>
